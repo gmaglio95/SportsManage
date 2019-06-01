@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "608022092414",
+    "firebase_url": "https://sportsmanage-3f51a.firebaseio.com",
+    "project_id": "sportsmanage-3f51a",
+    "storage_bucket": "sportsmanage-3f51a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608022092414:android:1ebc4652f2af0a74",
+        "android_client_info": {
+          "package_name": "it.gmaglio.sportsmanage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608022092414-3m1hduuqmttnnd2e04fti67hjo738v6v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "it.gmaglio.sportsmanage",
+            "certificate_hash": "da9a26dcf28c5b168f4c83cc16edd48dab6ef34e"
+          }
+        },
+        {
+          "client_id": "608022092414-i6l7pjbd59fjt141gujrc9t812q0od40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDfit0drZsJ7ZUsPmcE_eWBfU-UKxFEkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608022092414-84b27m0vqno3t3e959q4276h094m1fqh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

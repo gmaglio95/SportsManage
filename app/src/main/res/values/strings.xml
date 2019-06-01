@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SportsManage</string>
+    <string name="sign_in_with_email">Registrati con email</string>
+    <string name="retrieve_password">Password dimenticata</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="emailAndPasswordSignInLabel">Non hai ancora un account? Registrati</string>
+    <string name="facebook_app_id">1184484271724875</string> <string name="fb_login_protocol_scheme">fb1184484271724875</string>
+</resources>
