@@ -65,14 +65,9 @@ public class LoginActivity extends AbstractSportsManagerActivity implements Face
     }
 
     private void checkUserAuthenticated () {
-
-
         if(firebaseAuth.getCurrentUser() != null ){
-             Toast.makeText(this, "Utente già loggato", Toast.LENGTH_SHORT).show();
            secureActivity.putExtra("authUser",firebaseAuth.getCurrentUser());
            startActivity(secureActivity);
-         }else {
-           Toast.makeText(this, "Utente non loggato", Toast.LENGTH_SHORT).show();
          }
     }
 

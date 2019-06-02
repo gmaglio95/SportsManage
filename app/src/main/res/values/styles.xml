@@ -9,6 +9,7 @@
 
 
         <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:title">@color/colorAccent</item>
     </style>
 
     <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
@@ -16,7 +17,7 @@
         <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
-    <style name="NoActionBarAppTheme" parent="AppTheme">
+    <style name="NoActionBarAppTheme">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
     </style>
@@ -27,10 +28,7 @@
     </style>
 
 
-    <style name="AppTheme.FullScreenDialog" parent="Theme.MaterialComponents.Light.Dialog">
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <style name="AppTheme.FullScreenDialog" parent="AppTheme">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="actionMenuTextColor">@color/colorAccent</item>
