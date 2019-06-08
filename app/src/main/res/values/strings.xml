@@ -7,6 +7,10 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="emailAndPasswordSignInLabel">Non hai ancora un account? Registrati</string>
-    <string name="facebook_app_id">1184484271724875</string> <string name="fb_login_protocol_scheme">fb1184484271724875</string>
+    <string name="facebook_app_id">1184484271724875</string>
+    <string name="fb_login_protocol_scheme">fb1184484271724875</string>
     <string name="sign_in_title">Registrazione</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

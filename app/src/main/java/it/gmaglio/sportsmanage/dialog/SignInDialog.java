@@ -1,12 +1,16 @@
 package it.gmaglio.sportsmanage.dialog;
 
 import android.app.Dialog;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.SwipeDismissBehavior;
-import android.support.v4.app.DialogFragment;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.BottomSheetDialogFragment;
+
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.Layout;
@@ -15,25 +19,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import it.gmaglio.sportsmanage.R;
+import it.gmaglio.sportsmanage.fragment.SignInFragment;
 
-public class SignInDialog extends DialogFragment implements  Toolbar.OnMenuItemClickListener{
+public class SignInDialog extends BottomSheetDialogFragment implements  Toolbar.OnMenuItemClickListener {
 
    private Toolbar toolbar;
-   private SwipeRefreshLayout swipeRefreshLayout;
+   private BottomSheetBehavior mBehavior;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.AppTheme_FullScreenDialog);
-
-
-
-
     }
 
     public static SignInDialog showSignInDialog(FragmentManager fragmentManager){
-
         SignInDialog signInDialog = new SignInDialog();
         signInDialog.show(fragmentManager, signInDialog.getClass().getCanonicalName());
         return signInDialog;
@@ -42,23 +43,42 @@ public class SignInDialog extends DialogFragment implements  Toolbar.OnMenuItemC
     @Override
     public void onStart() {
         super.onStart();
-        Dialog dialog = getDialog();
-        if(dialog != null){
-            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-
-            dialog.getWindow().setWindowAnimations(R.style.AppTheme_Slide);
-        }
+        mBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        FragmentTransaction signInDialogFragmentManager = this.getChildFragmentManager().beginTransaction();
+        signInDialogFragmentManager.add(R.id.frameLayout,new SignInFragment());
+        signInDialogFragmentManager.commit();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.sign_in_with_mail_dialog, container, false);
-
+         super.onCreateView(inflater, container, savedInstanceState);
+        View view = View.inflate(getContext(), R.layout.sign_in_with_mail_dialog, null);
         toolbar = view.findViewById(R.id.toolbar);
 
         return view;
+      }
+
+
+    public static int getScreenHeight() {
+        return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
+
+
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        BottomSheetDialog dialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
+        View view = View.inflate(getContext(), R.layout.sign_in_with_mail_dialog, null);
+        LinearLayout linearLayout = view.findViewById(R.id.rootDialog);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
+        params.height = getScreenHeight();
+       // linearLayout.setLayoutParams(params);
+        dialog.setContentView(view);
+        mBehavior = BottomSheetBehavior.from((View) view.getParent());
+        return dialog;
+    }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
